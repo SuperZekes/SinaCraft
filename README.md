@@ -10,7 +10,7 @@ I am planning on slowly adding more and more features to make SinaCraft more uni
 
 ### How do I play it?
 
-You can play this game on Windows, Mac and Linux! For Windows go into the output folder and get the exe and simply run it. For Mac/Linux just install the requirements with the following commands:
+You can play this game on Windows, Mac and Linux! For Windows go into the [releases tab](https://github.com/SuperZekes/SinaCraft/releases) and get the exe and simply run it. For Mac/Linux just install the requirements with the following commands:
 ```
 pip3 install requirements.txt
 -----------------------------
