@@ -1,0 +1,25 @@
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["windows-latest", "macos-latest", "ubuntu-latest"]
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.12
+
+    - run: pip install -r requirements.txt pyinstaller
+    - run: pyinstaller -F -n sinacraft sinacraft.py
+    - run: |
+          git add dist
+          git config --global user.name 'Github Actions'
+          git config --global user.email '<>'
+          git commit -m "Build latest version for ${{ matrix.os }}"
+          git pull
+          git push
