@@ -1,4 +1,5 @@
 on: [push, workflow_dispatch]
+name: Build
 
 jobs:
   build:
@@ -20,6 +21,7 @@ jobs:
           git add dist -f
           git config --global user.name 'Github Actions'
           git config --global user.email '<>'
+          git config --global pull.rebase false
           git commit -m "Build latest version for ${{ matrix.os }}"
           git pull
           git push
