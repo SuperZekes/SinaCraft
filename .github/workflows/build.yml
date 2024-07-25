@@ -15,7 +15,7 @@ jobs:
         python-version: 3.12
 
     - run: pip install -r requirements.txt pyinstaller
-    - run: pyinstaller -F -n sinacraft sinacraft.py
+    - run: pyinstaller -F -n sinacraft-${{ matrix.os }} sinacraft.py
     - run: |
           git add dist -f
           git config --global user.name 'Github Actions'
