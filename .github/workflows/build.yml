@@ -18,7 +18,6 @@ jobs:
     - run: pip install -r requirements.txt pyinstaller
     - run: pyinstaller -F -n sinacraft-${{ matrix.os }} sinacraft.py
     - run: |
-          git add dist -f
           git config --global user.name 'Github Actions'
           git config --global user.email '<>'
           git config --global pull.rebase false
