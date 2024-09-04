@@ -1,5 +1,4 @@
 on: [push, workflow_dispatch]
-name: Build
 
 jobs:
   build:
@@ -16,11 +15,11 @@ jobs:
         python-version: 3.12
 
     - run: pip install -r requirements.txt pyinstaller
-    - run: pyinstaller -F -n sinacraft-${{ matrix.os }} sinacraft.py
+    - run: pyinstaller -F -n sinacraft sinacraft.py
     - run: |
+          git add dist
           git config --global user.name 'Github Actions'
           git config --global user.email '<>'
-          git config --global pull.rebase false
           git commit -m "Build latest version for ${{ matrix.os }}"
           git pull
           git push
